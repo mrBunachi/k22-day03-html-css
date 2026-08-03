@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>k22-day02-html</title>
+    <script src="https://kit.fontawesome.com/856c95e1e2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://dev.prismjs.com/themes/prism.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <!-- Nhóm bên trái -->
+      <div class="header-left">
+        <img
+          src="https://files.fullstack.edu.vn/f8-prod/organization-logos/694743c405102.png"
+          alt="logo"
+          class="logo"
+        />
+        <a href="#" class="btn-back">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>QUAY LẠI</span>
+        </a>
+      </div>
+
+      <!-- Nhóm ở giữa -->
+      <div class="header-center">
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" placeholder="Tìm khóa học, bài tập, hỏi đáp..." />
+        </div>
+      </div>
+
+      <!-- Nhóm bên phải -->
+      <div class="header-right">
+        <a href="#" class="my-courses">Khóa học của tôi</a>
+        <div class="notification">
+          <i class="fa-solid fa-bell"></i>
+          <span class="badge">1</span>
+        </div>
+        <img src="https://files.f8.edu.vn/f8-prod/avatars/6a22258cb0225.jpg" alt="Avatar" class="avatar" />
+      </div>
+    </header>
+    <div class="container">
+      <!-- Thông tin tác giả/ lượt thích -->
+      <aside class="sidebar-left">
+        <!-- Nội dung của tác giả -->
+        <p class="author-name">Ếch Trendy</p>
+        <p class="author-bio">
+          Cùng chú ếch nhỏ khám phá thế giới Web đầy biến động. Cập nhật trending nhanh như cách ếch đớp mồi! ⌨️🌿
+        </p>
+        <!-- Kẻ chân -->
+        <hr />
+        <div class="post-stats">
+          <div class="stat-item like">
+            <i class="fa-regular fa-heart"></i>
+            <span>1</span>
+          </div>
+          <div class="stat-item heart">
+            <i class="fa-regular fa-comment"></i>
+            <span>0</span>
+          </div>
+        </div>
+        <!-- Bên phải -->
+      </aside>
+      <main class="main-content">
+        <!-- Ở giữa -->
+        <article class="article">
+          <!-- Nội dung chính -->
+          <h1>ES2025 JavaScript: Patterns và Libraries Hot Nhất Cho Developer Việt 2026</h1>
+          <h2>ES2025 ra mắt - cái gì thật sự vào spec?</h2>
+          <p>
+            Tháng 6/2025, TC39 chính thức công bố ECMAScript 2025 (ES16). Nếu bạn hay follow Twitter/X dev community,
+            chắc nghe nhiều về pipeline operator hay Temporal API - nhưng cả hai vẫn chưa vào spec. Đừng để bị nhầm.
+          </p>
+          <p>
+            Cái
+            <strong>thật sự</strong>
+            vào ES2025 gồm 6 nhóm tính năng:
+          </p>
+          <ul>
+            <li>
+              <b>Iterator Helpers</b>
+              - global
+              <ode class="inline-code">Iterator</ode>
+              object với
+              <code class="inline-code">map</code>
+              ,
+              <code class="inline-code">filter</code>
+              ,
+              <code class="inline-code">take</code>
+              ,
+              <code class="inline-code">drop</code>
+            </li>
+            <li>
+              <b>Set Methods</b>
+              -
+              <code class="inline-code">union()</code>
+              ,
+              <code class="inline-code">intersection()</code>
+              ,
+              <code class="inline-code">difference()</code>
+              ,
+              <code class="inline-code">symmetricDifference()</code>
+            </li>
+            <li>
+              <b>Promise.try()</b>
+              - bắt cả sync lẫn async errors trong một chain
+            </li>
+            <li>
+              <b>RegExp improvements</b>
+              - flag
+              <code class="inline-code">/v</code>
+              ,
+              <code class="inline-code">RegExp.escape()</code>
+              , duplicate named groups
+            </li>
+            <li>
+              <b>Import Attributes</b>
+              -
+              <code class="inline-code">import data from "./data.json" with { type: "json" }</code>
+            </li>
+            <li>
+              <b>Float16Array</b>
+              - typed array 16-bit cho memory-sensitive workloads
+            </li>
+          </ul>
+          <figure>
+            <img
+              src="https://files.f8.edu.vn/f8-prod/blog_posts/13485/section_0_260323080636_69c0921c0cf292.71514803.png"
+              alt="ES2025 tập trung vào iterator, set, và async - không phải pipeline operator như nhiều bài viết nhầm"
+            />
+            <figcaption class="chu-thich">
+              ES2025 tập trung vào iterator, set, và async - không phải pipeline operator như nhiều bài viết nhầm
+            </figcaption>
+          </figure>
+          <p>
+            Node.js 22+ và các browser Chrome/Firefox/Safari release sau tháng 6/2025 đã support native. Không cần
+            polyfill cho production nếu bạn target môi trường đủ mới.
+          </p>
+          <p>
+            Pipeline operator (
+            <code code class="inline-code">|></code>
+            ) và Temporal API? Vẫn đang ở Stage 2-3. Dùng Luxon hoặc date-fns cho date/time là lựa chọn thực tế nhất
+            hiện tại.
+          </p>
+          <hr />
+          <h2>Iterator Helpers và Set Methods - dùng thật trong dự án thế nào?</h2>
+          <p>Hai tính năng này mình thấy practical nhất trong ES2025 cho daily work.</p>
+          <p>
+            <b>Iterator Helpers</b>
+            giải quyết bài toán bạn từng phải import lodash chỉ để
+            <code class="inline-code">map + filter + slice</code>
+            một mảng lớn. Bây giờ không cần nữa:
+          </p>
+          <div class="code-box">
+            <button class="btn-copy">Copy</button>
+            <pre><code class="language-javascript">
+            // Trước ES2025 - load cả mảng vào memory
+            const result = apiData
+              .filter(item => item.active)
+              .map(item => item.name)
+              .slice(0, 100);
+
+            // ES2025 - lazy evaluation, chỉ xử lý đến khi đủ 100 item
+            const result = Iterator.from(apiData)
+              .filter(item => item.active)
+              .map(item => item.name)
+              .take(100)
+              .toArray();
+            </code></pre>
+          </div>
+          <p>
+            Khác biệt quan trọng:
+            <code class="inline-code">Iterator.from()</code>
+            <b>lazy</b>
+            - với mảng 10.000 item nhưng chỉ cần 100 kết quả đầu, nó không xử lý 9.900 item còn lại. Lodash chain cũng
+            làm được điều này, nhưng giờ là native.
+          </p>
+          <figure>
+            <img
+              src="https://files.f8.edu.vn/f8-prod/blog_posts/13485/section_1_260323080703_69c092375aabc3.16191064.png"
+              alt="Lazy evaluation: chỉ xử lý đúng số item cần thiết, tiết kiệm CPU và memory đáng kể"
+            />
+            <figcaption class="chu-thich">
+              Lazy evaluation: chỉ xử lý đúng số item cần thiết, tiết kiệm CPU và memory đáng kể
+            </figcaption>
+          </figure>
+          <p>
+            <b>Set Methods</b>
+            thì đặc biệt hữu ích cho permission systems hoặc dedup realtime data:
+          </p>
+          <div class="code-box">
+            <button class="btn-copy">Copy</button>
+            <pre><code class="language-javascript">
+              const userRoles = new Set(['admin', 'editor']);
+              const requiredRoles = new Set(['editor', 'viewer']);
+
+              // Kiểm tra overlap
+              const hasAccess = !userRoles.intersection(requiredRoles).size === 0;
+
+              // Chat app: merge messages từ 2 nguồn, không trùng
+              const allMessages = socketMessages.union(cachedMessages);
+
+              // Diff để biết message mới
+              const newMessages = socketMessages.difference(cachedMessages);
+            </code></pre>
+          </div>
+          <p>
+            Trước đây bạn phải tự viết
+            <code class="inline-code">[...setA].filter(x => setB.has(x))</code>
+            . Dài, khó đọc, dễ bug. Set methods native clean hơn nhiều và chain được với nhau.
+          </p>
+          <hr />
+          <h2>Promise.try() và async/await patterns nâng cao</h2>
+          <p>Đây là tính năng mình mong nhất trong ES2025. Vấn đề cũ:</p>
+          <div class="code-box">
+            <button class="btn-copy">Copy</button>
+            <pre><code class="language-javascript">
+              // Bug tiềm ẩn: nếu getUser() throw sync, lỗi không bị catch!
+              async function loadProfile(id) {
+                return getUser(id) // sync function, throw không bị catch bởi .catch()
+                  .then(user => fetchDetails(user));
+              }
+            </code></pre>
+          </div>
+          <p>
+            <code class="inline-code">Promise.try()</code>
+            fix đúng điểm này:
+          </p>
+          <div class="code-box">
+            <button class="btn-copy">Copy</button>
+            <pre><code class="language-javascript">
+              // Promise.try wrap cả sync throw vào promise chain
+              Promise.try(() => getUser(id))
+                .then(user => fetchDetails(user))
+                .catch(err => handleError(err)); // bắt được cả sync lẫn async error
+            </code></pre>
+          </div>
+          <b>Pattern mạnh hơn: kết hợp với async generators cho streaming data</b>
+          <div class="code-box">
+            <button class="btn-copy">Copy</button>
+            <pre><code class="language-javascript">
+              async function* streamDashboardData(endpoint) {
+              const response = await Promise.try(() => fetch(endpoint));
+              const reader = response.body.getReader();
+              
+              while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                
+                // Dùng Iterator Helpers để transform ngay trên stream
+                yield* Iterator.from([value])
+                  .map(chunk => JSON.parse(new TextDecoder().decode(chunk)))
+                  .filter(data => data.type === 'update');
+              }
+            }
+
+            // Consume trong component
+            for await (const update of streamDashboardData('/api/stream')) {
+              updateUI(update);
+            }
+            </code></pre>
+          </div>
+          <figure>
+            <img
+              src="https://files.f8.edu.vn/f8-prod/blog_posts/13485/section_2_260323080728_69c09250954f10.74211997.png"
+              alt="Promise.try + async generator = xử lý stream data không bị miss error ở bất kỳ điểm nào"
+            />
+            <figcaption class="chu-thich">
+              Promise.try + async generator = xử lý stream data không bị miss error ở bất kỳ điểm nào
+            </figcaption>
+          </figure>
+          <p>
+            <b>Top-level await</b>
+            (ES2022 nhưng hay dùng chung với ES2025 patterns) cũng clean hơn khi kết hợp Set ops:
+          </p>
+          <div class="code-box">
+            <button class="btn-copy">Copy</button>
+            <pre><code class="language-javascript">
+        // module.js - init một lần, share across module
+        const initialPermissions = new Set(await fetchUserPermissions());
+        const cachedPermissions = new Set(JSON.parse(localStorage.getItem('perms') ?? '[]'));
+
+        // Merge, loại bỏ duplicate
+        export const permissions = initialPermissions.union(cachedPermissions);
+            </code></pre>
+          </div>
+          <p>
+            Nếu bạn muốn nền tảng JavaScript vững để apply những patterns này ngay, khóa
+            <a href="https://f8.edu.vn/javascript">JavaScript Pro</a>
+            cover sâu về async/await, closures, và cách JS engine thực sự hoạt động - đủ để đọc ES2025 spec mà hiểu rõ
+            tại sao.
+          </p>
+          <hr />
+          <h2>RxJS vs Zustand - chọn gì cho realtime web app?</h2>
+          <p>Mình sẽ không nói "cái nào tốt hơn" vì câu trả lời phụ thuộc vào loại app bạn đang build.</p>
+          <p>
+            <b>RxJS</b>
+            (
+            <a href="https://rxjs.dev/">RxJS docs</a>
+            ) là reactive programming library với Observable - phù hợp khi data flow của bạn phức tạp, nhiều nguồn, cần
+            backpressure hay timing control:
+          </p>
+          <div class="code-box">
+            <button class="btn-copy">Copy</button>
+            <pre><code class="language-javascript">
+        import { fromEvent, Subject } from 'rxjs';
+        import { debounceTime, scan, filter } from 'rxjs/operators';
+
+        const socket = new WebSocket('wss://api.example.com/live');
+
+        // Stream WebSocket messages, debounce 300ms, accumulate
+        const liveData$ = fromEvent(socket, 'message').pipe(
+          debounceTime(300),
+          filter(event => event.data !== 'ping'),
+          scan((acc, event) => [...acc.slice(-99), JSON.parse(event.data)], []),
+        );
+
+        liveData$.subscribe(messages => updateDashboard(messages));
+            </code></pre>
+          </div>
+          <p>
+            <b>Zustand</b>
+            (
+            <a href="https://github.com/pmndrs/zustand">Zustand GitHub</a>
+            ) đi theo hướng ngược lại - minimal, hooks-based, không boilerplate:
+          </p>
+          <div class="code-box">
+            <button class="btn-copy">Copy</button>
+            <pre><code class="language-javascript">
+        import { create } from 'zustand';
+
+        const useChatStore = create((set, get) => ({
+          messages: [],
+          connected: false,
+          
+          // ES2025 Promise.try trong action
+          connectSocket: async (url) => {
+            await Promise.try(async () => {
+              const ws = new WebSocket(url);
+              set({ connected: true });
+              
+              ws.onmessage = (e) => set(state => ({
+                messages: [...state.messages, JSON.parse(e.data)]
+              }));
+            });
+          },
+        }));
+
+        // Trong component
+        function ChatApp() {
+          const { messages, connectSocket } = useChatStore();
+          // ...
+        }
+            </code></pre>
+          </div>
+          <figure>
+            <img
+              src="https://files.f8.edu.vn/f8-prod/blog_posts/13485/section_3_260323080755_69c0926b837010.27943991.png"
+              alt="RxJS cho stream phức tạp, Zustand cho React app state - chọn đúng tool cho đúng bài toán"
+            />
+            <figcaption class="chu-thich">
+              RxJS cho stream phức tạp, Zustand cho React app state - chọn đúng tool cho đúng bài toán
+            </figcaption>
+          </figure>
+          <p>Bảng so sánh thực tế:</p>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Tiêu chí</th>
+                <th>RxJS v8.x</th>
+                <th>Zustand v5.x</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bundle size</td>
+                <td>~50KB</td>
+                <td>&lt;2KB</td>
+              </tr>
+              <tr>
+                <td>Learning curve</td>
+                <td>Cao (marble diagrams)</td>
+                <td>Thấp</td>
+              </tr>
+              <tr>
+                <td>Phù hợp cho</td>
+                <td>Multiplayer, live feed, complex streams</td>
+                <td>React SPA, UI state</td>
+              </tr>
+              <tr>
+                <td>ES2025 synergy</td>
+                <td><code class="inline-code">Iterator.from(observable)</code></td>
+                <td>
+                  <code class="inline-code">Promise.try</code>
+                  trong actions
+                </td>
+              </tr>
+              <tr>
+                <td>TypeScript</td>
+                <td>Tốt</td>
+                <td>Rất tốt (generics cải thiện v5+)</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Cho hầu hết React app Việt Nam (dashboard, e-commerce, admin panel) - Zustand là đủ và ít đau đầu hơn. RxJS
+            chỉ worth it khi bạn xây multiplayer game, collaborative editor, hoặc financial live feed cần control timing
+            cực chính xác.
+          </p>
+          <p>
+            Nếu bạn đang build với ReactJS và chưa rõ cách quản lý state từ cơ bản, khóa
+            <a href="https://f8.edu.vn/reactjs">Xây Dựng Website với ReactJS</a>
+            sẽ giúp bạn hiểu đúng từ component state đến context trước khi nhảy vào Zustand.
+          </p>
+          <hr />
+          <h2>Xây realtime dashboard với ES2025 + Zustand: ví dụ thực tế</h2>
+          <p>
+            Mình sẽ ghép tất cả những gì đã nói vào một mini case study: realtime stock price dashboard nhận data qua
+            WebSocket.
+          </p>
+          <p>
+            Download file demo đầy đủ tại đây:
+            <a href="https://files.f8.edu.vn/f8-prod/blog_posts/13485/realtime-dashboard-es2025.html">
+              Tải file demo Realtime Dashboard
+            </a>
+          </p>
+          <p><b>Kiến trúc:</b></p>
+          <div class="code-box">
+            <button class="btn-copy">Copy</button>
+            <pre><code>
+              WebSocket server
+                  ↓
+              Zustand store (ES2025 Promise.try + Set dedup)
+                  ↓
+              Iterator Helpers (filter/transform)
+                  ↓
+              React components (subscribe minimal)
+            </code></pre>
+          </div>
+          <h3>Store với ES2025 patterns:</h3>
+          <div class="code-box">
+            <button class="btn-copy">Copy</button>
+            <pre><code class="language-javascript">           import { create } from 'zustand';
+
+            const useStockStore = create((set, get) => ({
+            prices: new Map(), // symbol -> latest price
+            symbols: new Set(), // active symbols
+
+            subscribeToSymbols: async (newSymbols) => {
+              const current = get().symbols;
+              // Set union - không duplicate
+              const updated = current.union(new Set(newSymbols));
+              set({ symbols: updated });
+              
+              // Promise.try bắt cả sync error từ WebSocket init
+              await Promise.try(async () => {
+                const ws = new WebSocket(`wss://api/stocks?symbols=${[...updated].join(',')}`);
+                
+                ws.onmessage = (e) => {
+                  const { symbol, price } = JSON.parse(e.data);
+                  set(state => ({
+                    prices: new Map(state.prices).set(symbol, price)
+                  }));
+                };
+              });
+            },
+
+            // Iterator Helpers: lấy top 10 cổ phiếu tăng nhiều nhất
+            getTopGainers: (baseline) => {
+              return Iterator.from(get().prices.entries())
+                .filter(([, price]) => price > (baseline.get(symbol) ?? 0))
+                .map(([symbol, price]) => ({ symbol, price }))
+                .take(10)
+                .toArray();
+            },
+            }));
+            </code></pre>
+          </div>
+          <figure>
+            <img
+              src="https://files.f8.edu.vn/f8-prod/blog_posts/13485/section_4_260323080825_69c0928991e952.37228671.png"
+              alt="Zustand store kết hợp ES2025 Set union và Iterator Helpers - ít code hơn, dễ đọc hơn"
+            />
+            <figcaption class="chu-thich">
+              Zustand store kết hợp ES2025 Set union và Iterator Helpers - ít code hơn, dễ đọc hơn
+            </figcaption>
+            <p>Pattern này cho phép bạn:</p>
+            <ul>
+              <li>Không duplicate symbol khi user thêm subscription nhiều lần (Set.union)</li>
+              <li>Không bị missed error khi WebSocket init fail sync (Promise.try)</li>
+              <li>Chỉ xử lý đúng 10 item cần thiết từ hàng nghìn price entries (Iterator.take)</li>
+            </ul>
+            <p>Bạn đã có đủ building blocks. Bước tiếp:</p>
+            <ol>
+              <li>Cài Node.js 22+ hoặc bật Chrome mới nhất để test native (không cần polyfill)</li>
+              <li>Thêm Zustand vào project React hiện tại, migrate một slice state nhỏ trước</li>
+              <li>
+                Thử
+                <code class="inline-code">Iterator.from()</code>
+                thay lodash chain trong một data transformation function
+              </li>
+            </ol>
+          </figure>
+          <div class="post-stats" style="font: 2.5em sans-serif">
+            <div class="stat-item like">
+              <i class="fa-regular fa-heart"></i>
+              <span>1</span>
+            </div>
+            <div class="stat-item heart">
+              <i class="fa-regular fa-comment"></i>
+              <span>0</span>
+            </div>
+          </div>
+        </article>
+      </main>
+      <aside class="sidebar-right">
+        <!-- Để trống -->
+        Bên trái
+      </aside>
+    </div>
+    <!-- GEMINI -->
+    <footer class="footer">
+      <div class="footer-top">
+        <!-- Cột 1 -->
+        <div class="footer-col col-brand">
+          <div class="brand-header">
+            <span class="logo-box">F8</span>
+            <span class="brand-title">HỌC LẬP TRÌNH ĐỂ ĐI LÀM</span>
+          </div>
+          <p>
+            <strong>Điện thoại:</strong>
+            08 1919 8989
+          </p>
+          <p>
+            <strong>Email:</strong>
+            contact@f8.edu.vn
+          </p>
+          <p>
+            <strong>Địa chỉ liên hệ:</strong>
+            Số 1, ngõ 41, Trần Duy Hưng, Cầu Giấy, Hà Nội
+          </p>
+          <div class="footer-badges">
+            <img
+              src="data:image/png;base64,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"
+              alt="DMCA Protected"
+              class="badge-img"
+            />
+            <img
+              src="https://f8.edu.vn/assets/bo-cong-thuong-DpFUhjUM.png"
+              alt="Đã thông báo Bộ Công Thương"
+              class="badge-img"
+            />
+          </div>
+        </div>
+
+        <!-- Cột 2 -->
+        <div class="footer-col">
+          <h3>VỀ F8</h3>
+          <ul>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Liên hệ</a></li>
+            <li><a href="#">Điều khoản & Quy định</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3 -->
+        <div class="footer-col">
+          <h3>HỖ TRỢ</h3>
+          <ul>
+            <li><a href="#">Chính sách thanh toán</a></li>
+            <li><a href="#">Chính sách vận chuyển</a></li>
+            <li><a href="#">Chính sách kiểm hàng</a></li>
+            <li><a href="#">Quy định về giá</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4 -->
+        <div class="footer-col">
+          <h3>CÔNG CỤ</h3>
+          <ul>
+            <li><a href="#">Tạo CV xin việc</a></li>
+            <li><a href="#">Rút gọn liên kết</a></li>
+            <li><a href="#">Clip-path maker</a></li>
+            <li><a href="#">Snippet generator</a></li>
+            <li><a href="#">CSS Grid generator</a></li>
+            <li><a href="#">Cảnh báo sờ tay lên mặt</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 5 -->
+        <div class="footer-col col-company">
+          <h3>CÔNG TY CỔ PHẦN CÔNG NGHỆ GIÁO DỤC F8</h3>
+          <p>
+            <strong>Địa chỉ:</strong>
+            Tầng 4, Tòa nhà Anh Minh, số 36 Hoàng Cầu, Thành phố Hà Nội
+          </p>
+          <p>
+            <strong>Mã số doanh nghiệp:</strong>
+            0109922901 do Chi cục Thuế Quận Đống Đa, Cục Thuế TP. Hà Nội cấp ngày 04/03/2022
+          </p>
+        </div>
+      </div>
+
+      <!-- Phần bản quyền phía dưới -->
+      <div class="footer-bottom">
+        <p>© 2018 - 2026 F8. Nền tảng học lập trình hàng đầu Việt Nam.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </footer>
+    <!-- GEMINI -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  </body>
+</html>

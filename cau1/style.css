@@ -1,0 +1,467 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+h2 {
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+/* Header tổng */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Các nội dung được cách nhau bằng dấu cách ở giữa, k có ở hai đầu */
+  height: 66px; /* Định nghĩa cái header chỉ cao 66px thôi*/
+  padding: 0 28px;
+  /* border-left: red; */
+  border-bottom: 1px solid #e8e8e8;
+  background-color: #fff;
+}
+
+/* Căn chỉnh chung cho các nhóm */
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Nhóm bên trái */
+.logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #666;
+  font-weight: 789;
+  font-size: 13px;
+}
+
+/* Nhóm ở giữa - Thanh tìm kiếm */
+.header-center {
+  flex: 1;
+  max-width: 420px;
+  margin: 0 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+  padding: 8px 20px;
+}
+
+.search-icon {
+  color: #757575;
+  margin-right: 8px;
+}
+
+/* .search-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #292929;
+} */
+
+.search-bar input {
+  border: none;
+  /* background-color: wheat; */
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: red;
+  /* border-radius: 20px; */
+}
+
+/*
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #333;
+} */
+
+/* .my-courses {
+  text-decoration: none;
+  color: #292929;
+  font-weight: 600;
+  font-size: 14px;
+}
+ */
+
+/* .notification {
+  position: relative;
+  cursor: pointer;
+  color: #707070;
+  font-size: 18px;
+} */
+
+/* Nhóm bên phải */
+.my-courses {
+  text-decoration: none;
+  color: #292929;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.notification {
+  position: relative;
+  cursor: pointer;
+  color: #707070;
+  font-size: 18px;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #f47474;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 5px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid pink;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.sidebar-left {
+  width: 200px;
+  flex-shrink: 0; /* Không cho bị co lại */
+}
+
+.main-content {
+  flex: 1; /* Chiếm hết khoảng không ở giữa */
+  max-width: 700px;
+  margin: 0 auto;
+  /* text-align: center; */
+}
+
+.sidebar-right {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.post-stats {
+  display: flex;
+  /* align-items: center; */
+  gap: 50px;
+  color: #666;
+}
+
+.stat-item {
+  /* display: flex; */
+  color: palevioletred;
+  cursor: pointer;
+  /* Khi thay cái trên bằng red thì cả tym và cmt đổi màu --> css chung được */
+}
+
+.author-name {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.author-bio {
+  font-weight: lighter;
+  font-size: 13;
+  line-height: 1.5;
+}
+
+.inline-code {
+  background-color: #e0f8f5;
+  color: #0d5c53;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 0.9em;
+}
+
+.article img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid gray;
+  border-radius: 12px;
+}
+
+.chu-thich {
+  text-align: center; /* Căn giữa chữ */
+  font-size: 13px; /* Chữ nhỏ hơn chữ thường một xíu (thường chữ bài viết là 15-16px) */
+  color: #666666; /* Màu xám nhẹ nhàng */
+  margin-top: 8px; /* Khoảng cách nhẹ giữa ảnh và chú thích */
+  margin-bottom: 20px; /* Khoảng cách với đoạn văn tiếp theo */
+  font-style: italic; /* Chữ in nghiêng nhìn rất chuẩn phong cách báo chí (tùy chọn) */
+}
+
+/* Khối chứa code */
+.code-box {
+  position: relative;
+  background-color: #f0f7ff; /* Nền xanh xám nhạt */
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+/* Nút copy đơn giản góc trên bên phải */
+.btn-copy {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e2e8f0;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse; /* Dính liền đường viền không bị hở */
+  margin: 24px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+/* Kẻ viền xám cho tất cả ô tiêu đề và ô dữ liệu */
+.comparison-table th,
+.comparison-table td {
+  border: 1px solid #e5e5e5; /* Màu viền mỏng nhẹ nhạt như ảnh */
+  padding: 12px 16px; /* Độ thoáng bên trong các ô */
+  text-align: left; /* Căn chữ bên trái */
+  vertical-align: top; /* Căn dòng đỉnh khi ô có nhiều hàng chữ */
+}
+
+/* Định dạng riêng cho hàng Tiêu đề trên cùng */
+.comparison-table th {
+  font-weight: bold;
+  color: #242424;
+}
+
+/* GEMINI */
+/* Khối chứa Avatar và Thông tin tác giả trong bài viết */
+.author-info-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 24px 0;
+}
+
+.author-avatar-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.author-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.author-name-text {
+  font-weight: bold;
+  font-size: 15px;
+  color: #292929;
+}
+
+.verify-badge {
+  color: #1b74e4; /* Màu xanh tick xịn */
+  font-size: 14px;
+}
+
+.post-time-meta {
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.post-time-meta .dot {
+  font-weight: bold;
+}
+/* ================= FOOTER ================= */
+.footer {
+  background-color: #181821;
+  color: #a9a9b3;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 60px;
+  padding: 50px 40px 20px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.footer-col {
+  flex: 1;
+}
+
+.footer-col.col-brand {
+  flex: 1.3;
+}
+
+.footer-col.col-company {
+  flex: 1.4;
+}
+
+/* Header thương hiệu cột 1 */
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.logo-box {
+  background-color: #f05123;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.brand-title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Cài đặt chung cho các cột */
+.footer-col h3 {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.footer-col p {
+  margin-bottom: 12px;
+  color: #a9a9b3;
+}
+
+.footer-col strong {
+  color: #ffffff;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: #a9a9b3;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+}
+
+/* Ảnh chứng nhận */
+.footer-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.badge-img {
+  height: 38px;
+  width: fit-content;
+  object-fit: contain;
+}
+
+/* Thanh copyright phía dưới */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid #2a2a35;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  color: #a9a9b3;
+  font-size: 13px;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #242430;
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: #363646;
+}
+/* GEMINI */
