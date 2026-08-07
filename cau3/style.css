@@ -1,90 +1,61 @@
-/* Style chung theo đúng bài trước */
-h1,
-body > p {
-  text-align: center;
-}
-
-body > p {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 10px 200px 30px;
-}
-
-.contact-box {
-  display: flex;
-  margin: 0 150px;
-  gap: 30px;
-}
-
-.contact-left,
-.contact-right {
-  flex: 1;
-}
-
-/* Thông tin liên hệ */
-.thongtin {
-  list-style: none;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.thongtin li {
-  margin-bottom: 10px;
-}
-
-.thongtin a {
-  color: #333;
-}
-
-/* Form & Input */
-.lienhe-form .form-group {
-  margin-bottom: 15px;
+.form-group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
 }
 
-.lienhe-form label {
+.form-group label {
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 5px;
 }
 
-.lienhe-form input,
-.lienhe-form textarea {
+.form-group input,
+.form-group textarea {
   padding: 10px;
-  border: 1px solid #ccc;
+  max-width: 350px;
   border-radius: 8px;
-  font-family: Arial, Helvetica, sans-serif;
-  outline: none;
+  border: 1px solid #ccc;
+  /* outline: none; */
 }
 
-.lienhe-form input:focus,
-.lienhe-form textarea:focus {
-  border-color: #ff6600;
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #d83a18; /* Đổi viền sang màu đỏ cam */
 }
 
-/* Nút bấm Submit giữ nguyên style class .btn của bạn */
-.btn-box {
+.info {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+}
+
+.info p {
+  font: inherit;
+  padding: 0;
+  margin: 0;
 }
 
 .btn {
-  width: 120px;
+  background-color: #d83a18;
   color: white;
-  background-color: orange;
-  background: linear-gradient(to right, #ff8a00, #d34000);
   border: none;
+  padding: 10px 30px;
   border-radius: 20px;
-  padding: 10px 0;
-  font-weight: bold;
   cursor: pointer;
 }
 
-.btn:hover {
-  opacity: 0.9;
+.container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
 }
-
-/* Map Iframe */
-.contact-right iframe {
-  border-radius: 15px;
+.left {
+  flex: 1;
+  margin-left: 100px;
+}
+.right {
+  flex: 1;
+  height: 450px;
+}
+.right iframe {
+  border-radius: 12px;
 }
